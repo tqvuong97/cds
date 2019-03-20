@@ -1,26 +1,54 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+           <form class="login100-form validate-form">
+            <span class="login100-form-title">
+              <b>CAREER DEVELOPMENT</b></br>
+              <b>SYSTEM</b>
+            </span>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"input100", type:"text" %>
+            </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+              <span class="focus-input100"></span>
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class:"input100", type:"password", name:"pass" %>
+            </div>
+
+            <div class="rememberme">
+              <% if devise_mapping.rememberable? %>		
+                <div class="field">		
+                <%= f.check_box :remember_me %>		
+                <%= f.label :remember_me, value: "Keep me signed in" %>		
+                </div>		
+              <% end %>	
+            </div>	
+
+            <div class="container-login100-form-btn">
+              <%= f.submit "Log in", class:"login100-form-btn" %>
+            </div>
+
+            <div class="fogotpass">
+              <a class="txt" href="#">
+                Forgot password?
+              </a>
+            </div>
+           </form>
+        </div>
+      </div>
     </div>
   <% end %>
+  <%= render "devise/shared/links" %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+
+	
