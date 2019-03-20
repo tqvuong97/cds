@@ -16,7 +16,7 @@ class Users::PasswordsController < Devise::PasswordsController
     yield resource if block_given?
 
     if successfully_sent?(resource)
-      respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
+      respond_with(resource, location: after_sending_reset_password_instructions_path_for(resource_name))
     else
       respond_with(resource)
     end
@@ -44,6 +44,8 @@ class Users::PasswordsController < Devise::PasswordsController
       # else
       #   set_flash_message!(:notice, :updated_not_active)
       # end
+      set_flash_message!(:notice, :saved_password)
+
       respond_with resource, location: after_resetting_password_path_for(resource)
     else
       set_minimum_password_length
@@ -58,7 +60,7 @@ class Users::PasswordsController < Devise::PasswordsController
 
   # The path used after sending reset password instructions
   def after_sending_reset_password_instructions_path_for(resource_name)
-    new_user_password_path(resource_name) if is_navigational_format?
+    new_user_password_path(email: resource.email) if is_navigational_format?
   end
 
   # Check if a reset_password_token is provided in the request
