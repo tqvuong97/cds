@@ -2,22 +2,22 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../../fonts/poppins/Poppins-Regular.ttf'); 
+  src: url('./poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('/assets/fonts/poppins/Poppins-Bold.ttf'); 
+  src: url('./poppins/Poppins-Bold.ttf'); 
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('/assets/fonts/poppins/Poppins-Medium.ttf'); 
+  src: url('./poppins/Poppins-Medium.ttf'); 
 }
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: url('/assets/fonts/montserrat/Montserrat-Bold.ttf'); 
+  src: url('./montserrat/Montserrat-Bold.ttf'); 
 }
 
 * {
@@ -142,7 +142,7 @@ iframe {
   padding: 10px;
 }
 
-.fogotpass{
+.forgotpass{
   font-family: Poppins-Bold;
   color: #333333;
   line-height: 1.2;
@@ -151,6 +151,28 @@ iframe {
   width: 100%;
   display: block;
   padding-top: 10px;
+}
+
+.textwarning{
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert{
+  color: #d40a0a;
+  font-size: 17px;
+  text-align: center;
+}
+
+.notice{
+  color: #3bca0f;
+  font-size: 15px;
+}
+
+#error_explanation{
+  text-align: center;
+  color: #d40a0a;
+  font-size: 15px;
 }
 
 

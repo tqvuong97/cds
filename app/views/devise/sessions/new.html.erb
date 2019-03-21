@@ -6,8 +6,11 @@
         <span class="login100-form-title">
           <b>CAREER DEVELOPMENT</b></br>
           <b>SYSTEM</b>
+        </span>
 
-          <p class="alert"><%= alert %></p>
+          <div class="textwarning">
+            <p class="alert"><%= alert %></p>
+          </div>
 
           <div class="wrap-input100 validate-input" >
               <span class="focus-input100"></span>
@@ -15,10 +18,11 @@
           </div>
 
        
-          <div class="wrap-input100 validate-input" data-validate = "Password is required">
-            <span class="focus-input100"></span>
-            <%= f.password_field :password, autocomplete: "password", placeholder: "Password", class:"input100", type:"password"%>
-          </div>
+          <div class="wrap-input100 validate-input" >
+          <span class="focus-input100"></span>     
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Password", class:"input100" %>  
+        </div>
+       
 
           <div class="rememberme">
             <% if devise_mapping.rememberable? %>		
@@ -29,17 +33,17 @@
             <% end %>	
           </div>
 
-
           <div class="container-login100-form-btn">
             <%= f.submit "Log in", class:"login100-form-btn" %>
           </div>
 
-          <div class="fogotpass">
+          <div class="forgotpass">
             <%= link_to 'Forgot password?', new_user_password_path %>
           </div>
           </form>
         </div>
       </div>
+    </div>
 <% end %>
 
 
