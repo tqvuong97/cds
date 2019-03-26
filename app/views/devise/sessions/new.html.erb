@@ -9,8 +9,8 @@
         </span>
 
           <div class="textwarning">
-            <p class="alert", style="text-align: center" ><%= alert %></p>
-            <p class="notice"><%= notice %></p>
+            <div id="hide"><p class="notice"><%= notice %></p></div>
+            <p class="alert"><%= alert %></p>
           </div>
 
           <div class="wrap-input100 validate-input" >
@@ -41,11 +41,18 @@
           <div class="forgotpass">
             <%= link_to 'Forgot password?', new_user_password_path %>
           </div>
+
           </form>
         </div>
       </div>
     </div>
 <% end %>
+
+<script>
+  setTimeout(function(){
+    $('#hide').fadeOut(); 
+  }, 3000);
+</script>
 
 
 

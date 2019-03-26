@@ -1,5 +1,4 @@
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {:remote=>true, method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {:remote => true, method: :post }) do |f| %>
   <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
@@ -9,7 +8,10 @@
             </span>
 
             <div class="textwarning">
-              <p class="notice"><%= notice %></p>
+              <%= render "devise/shared/error_messages", resource: resource %>  
+              <p class="notice1"><%= notice %></p>
+              
+              <div id="show"><p class="alert"><%= alert %></p></div>
             </div>
 
             <div class="wrap-input100 validate-input" >
@@ -28,12 +30,32 @@
            </form>
         </div>
       </div>
-    </div>
+    </div>    
   <% end %>
+ 
 
   <script>
+  var count = 1;
   function myFunction() {
-    document.getElementById("submit").value = "resend";
+    if(count <= 5 )
+    {
+      $(".flash_message").html("<%= flash[:success] %>");
+      document.getElementById("submit").value = "resend";
+      count++;
+    }
+    else
+    {     
+      document.getElementById("submit").disabled=true;
+      alert("An email is only possible send back 5 times a day");
+      document.getElementById("submit").style.background = '#999';
+    }     
   }
+
+  $(".submit").click(function() {
+      $(".alert").fadeIn();
+      $(".notice1").fadeIn();
+  });
+
+
   </script>
   

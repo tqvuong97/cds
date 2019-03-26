@@ -160,19 +160,28 @@ iframe {
 
 .alert{
   color: #d40a0a;
-  font-size: 17px;
+  font-size: 16px;
   text-align: center;
+  padding-left: 110px;
 }
 
 .notice{
-  color: #3bca0f;
-  font-size: 15px;
+  color: #3ab813;
+  font-size: 16px;
+  padding-left: 100px;
+}
+
+.notice1{
+  color: #3ab813;
+  font-size: 16px;
 }
 
 #error_explanation{
   text-align: center;
+  justify-content: center;
   color: #d40a0a;
-  font-size: 15px;
+  font-size: 16px;
+  padding-left: 50px;
 }
 
 
@@ -196,11 +205,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: #0169BE;
+  background: -webkit-linear-gradient(-135deg, #0169BE, #05F3F3);
+  background: -o-linear-gradient(-135deg, #0169BE, #05F3F3);
+  background: -moz-linear-gradient(-135deg, #0169BE, #05F3F3);
+  background: linear-gradient(-135deg, #0169BE, #05F3F3);
 }
 
 .wrap-login100 {
@@ -486,5 +495,56 @@ iframe {
   .alert-validate::before {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+#login-dp{
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow:hidden;
+  background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+  font-size:12px    
+}
+#login-dp .bottom{
+  background-color:rgba(255,255,255,.8);
+  border-top:1px solid #ddd;
+  clear:both;
+  padding:14px;
+}
+#login-dp .social-buttons{
+  margin:12px 0    
+}
+#login-dp .social-buttons a{
+  width: 49%;
+}
+#login-dp .form-group {
+  margin-bottom: 10px;
+}
+.btn-fb{
+  color: #fff;
+  background-color:#3b5998;
+}
+.btn-fb:hover{
+  color: #fff;
+  background-color:#496ebc 
+}
+.btn-tw{
+  color: #fff;
+  background-color:#55acee;
+}
+.btn-tw:hover{
+  color: #fff;
+  background-color:#59b5fa;
+}
+@media(max-width:768px){
+  #login-dp{
+      background-color: inherit;
+      color: #fff;
+  }
+  #login-dp .bottom{
+      background-color: inherit;
+      border-top:0 none;
   }
 }
