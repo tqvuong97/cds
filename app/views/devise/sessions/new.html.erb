@@ -10,12 +10,6 @@
           <div class="textwarning">
             <div id="hide"><p class="notice"><%= notice %></p></div>
             <p class="alert"><%= alert %></p>
-<!--            <p class="alert", style="text-align: center" ><%#= alert %></p>-->
-            <%#if notice =="New password has been saved" %>
-<!--            <p id = "newpass" class="notice"><%#= notice %></p>-->
-            <%#else %>
-<!--              <p class="notice"><%#= notice %></p>-->
-            <%#end %>
           </div>
 
           <div class="wrap-input100 validate-input" >
@@ -43,6 +37,7 @@
           <div class="forgotpass">
             <%= link_to 'Forgot password?', new_user_password_path %>
           </div>
+
           </form>
         </div>
       </div>
@@ -53,6 +48,12 @@
     setTimeout(function() {
         $('#newpass').fadeOut('fast');
     }, 2000);
+</script>
+
+<script>
+  setTimeout(function(){
+    $('#hide').fadeOut(); 
+  }, 3000);
 </script>
 
 <script>
