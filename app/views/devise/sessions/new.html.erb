@@ -1,43 +1,45 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="limiter">
-  <div class="container-login100">
-    <div class="wrap-login100">
-       <form class="login100-form validate-form">
-        <span class="login100-form-title">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form">
+          <span class="login100-form-title">
           <b>CAREER DEVELOPMENT</b></br>
           <b>SYSTEM</b>
         </span>
-
           <div class="textwarning">
-            <p class="alert", style="text-align: center" ><%= alert %></p>
-            <p class="notice"><%= notice %></p>
+            <div id="hide"><p class="notice"><%= notice %></p></div>
+            <p class="alert"><%= alert %></p>
+<!--            <p class="alert", style="text-align: center" ><%#= alert %></p>-->
+            <%#if notice =="New password has been saved" %>
+<!--            <p id = "newpass" class="notice"><%#= notice %></p>-->
+            <%#else %>
+<!--              <p class="notice"><%#= notice %></p>-->
+            <%#end %>
           </div>
 
           <div class="wrap-input100 validate-input" >
-              <span class="focus-input100"></span>
-                  <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username", class:"input100", type:"text" %>
+          <span class="focus-input100"></span>
+            <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username", class:"input100", type:"text" %>
           </div>
 
-       
           <div class="wrap-input100 validate-input" >
-          <span class="focus-input100"></span>     
-            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Password", class:"input100" %>  
-        </div>
-       
+          <span class="focus-input100"></span>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Password", class:"input100" %>
+          </div>
 
           <div class="rememberme">
-            <% if devise_mapping.rememberable? %>		
-              <div class="field">		
-                <%= f.check_box :remember_me %>		
-                <%= f.label :remember_me, value: "Keep me signed in" %>		
-              </div>		
-            <% end %>	
+          <% if devise_mapping.rememberable? %>
+          <div class="field">
+          <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, value: "Keep me signed in" %>
+          </div>
+          <% end %>
           </div>
 
           <div class="container-login100-form-btn">
-            <%= f.submit "Log in", class:"login100-form-btn" %>
+          <%= f.submit "Log in", class:"login100-form-btn" %>
           </div>
-
           <div class="forgotpass">
             <%= link_to 'Forgot password?', new_user_password_path %>
           </div>
@@ -45,10 +47,21 @@
         </div>
       </div>
     </div>
+  </div>
 <% end %>
+<script>
+    setTimeout(function() {
+        $('#newpass').fadeOut('fast');
+    }, 2000);
+</script>
+
+<script>
+  setTimeout(function(){
+    $('#hide').fadeOut(); 
+  }, 3000);
+</script>
 
 
 
 
 
-	

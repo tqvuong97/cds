@@ -11,6 +11,7 @@
             <div class="textwarning">
               <%= render "devise/shared/error_messages", resource: resource %>
               <p class="alert"><%= alert %></p>
+              <p class="notice"><%= notice %></p>
                             
                 <%# if @minimum_password_length %>
                   <!--<em><%= @minimum_password_length %> characters minimum</em><br /> -->
@@ -35,4 +36,7 @@
         </div>
       </div>
     </div>
+
+
   <% end %>
+

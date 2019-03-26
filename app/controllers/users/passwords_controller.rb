@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::PasswordsController < Devise::PasswordsController
   prepend_before_action :require_no_authentication
   # Render the #edit only if coming from a reset password email link
@@ -43,7 +41,9 @@ class Users::PasswordsController < Devise::PasswordsController
       #   sign_in(resource_name, resource)
       # else
       #   set_flash_message!(:notice, :updated_not_active)
-      # end
+      # end   
+        
+
       set_flash_message!(:notice, :saved_password)
 
       respond_with resource, location: after_resetting_password_path_for(resource)
@@ -82,4 +82,5 @@ class Users::PasswordsController < Devise::PasswordsController
   def translation_scope
     'devise.passwords'
   end
+
 end

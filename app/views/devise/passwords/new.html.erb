@@ -1,39 +1,59 @@
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {:remote=>true, method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <div class="limiter">
-      <div class="container-login100">
-        <div class="wrap-login100">
-           <form class="login100-form validate-form">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form class="login100-form validate-form">
             <span class="login100-form-title">
               <b>FORGOT PASSWORD?</b>
             </span>
-
             <div class="textwarning">
-              <p class="notice"><%= notice %></p>
+              <%= render "devise/shared/error_messages", resource: resource %>  
+              <p class="notice1"><%= notice %></p>
+              
+              <div id="show"><p class="alert"><%= alert %></p></div>
             </div>
+          <div class="wrap-input100 validate-input" >
+            <span class="focus-input100"></span>
+            <%= f.email_field :email, autofocus: true, placeholder: "Email", class:"input100", value: params[:email] %>
+          </div>
 
-            <div class="wrap-input100 validate-input" >
-              <span class="focus-input100"></span>       
-                 <%= f.email_field :email, autofocus: true, placeholder: "Email", class:"input100", value: params[:email] %>
-            </div>
-           
-            
-            <div class="container-login100-form-btn">
-              <%= f.submit "Submit", class:"login100-form-btn",id: "submit", onclick:"myFunction()", request: true %>
-            </div>
 
-            <div class="forgotpass">
-              <i><%= link_to 'Back to log in', new_user_session_path %></i>
-            </div>
-           </form>
-        </div>
+          <div class="container-login100-form-btn">
+            <%= f.submit "Submit", class:"login100-form-btn",id: "submit", onclick:"myFunction()", request: true %>
+          </div>
+
+          <div class="forgotpass">
+            <i><%= link_to 'Back to log in', new_user_session_path %></i>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
   <% end %>
+ 
 
   <script>
+  var count = 1;
   function myFunction() {
-    document.getElementById("submit").value = "resend";
+    if(count <= 5 )
+    {
+      $(".flash_message").html("<%= flash[:success] %>");
+      document.getElementById("submit").value = "resend";
+      count++;
+    }
+    else
+    {     
+      document.getElementById("submit").disabled=true;
+      alert("An email is only possible send back 5 times a day");
+      document.getElementById("submit").style.background = '#999';
+    }     
   }
+
+  $(".submit").click(function() {
+      $(".alert").fadeIn();
+      $(".notice1").fadeIn();
+  });
+
+
   </script>
-  
+

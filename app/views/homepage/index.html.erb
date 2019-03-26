@@ -1,3 +1,61 @@
-<h1>Homepage#index</h1>
-<p>Find me in app/views/homepage/index.html.erb</p>
-<%= link_to('Log out', destroy_user_session_path, method: :delete) %>
+<!DOCTYPE html>
+
+<nav class="navbar navbar-expand-lg ">
+    <%#= image_tag("logo.png", :alt => "Logo Larion",href: homepage_index_path ) %>
+  <a class="navbar-brand" href="#">
+    <img src="/assets/logo.png" alt="Logo" >
+  </a>
+
+      
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">CDS - CDP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Administration</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+          <div class="end">
+            <div>
+              <li class="nav-item dropdown">
+              
+                <a class="nav-link dropdown-toggle" id="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <%= image_tag("avatar.jpg", :alt => "Logo Larion", class:"img-profile rounded-circle") %>
+                  <%= current_user.username.capitalize%>
+                </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %>
+                            Log out &nbsp; <i class="fa fa-sign-out" aria-hidden="true" target="_blank"></i>
+                        <% end %>
+                    </div>
+              </li>
+            </div>
+          </div>
+      </ul>
+    </div>
+</nav>
+
+<script>
+  $(function () {
+    $('#dropdown-toggle').hover(function () {
+      $('.dropdown-menu').toggleClass('show');
+      $('.dropdown-item').toggleClass('show');
+    })
+    $('.dropdown-menu').hover(function () {
+      $('.dropdown-menu').toggleClass('show');
+      $('.dropdown-item').toggleClass('show');
+    })
+  });
+</script>
+</body>
+
