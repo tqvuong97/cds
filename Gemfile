@@ -67,3 +67,4 @@ gem 'jquery-ui-rails'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.3.1'
+gem "font-awesome-rails"
